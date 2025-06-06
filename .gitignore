@@ -5,6 +5,7 @@ node_modules/
 logs
 *.log
 npm-debug.log*
+npm-debug.log
 
 # Dependency directories
 pids
@@ -23,3 +24,8 @@ pids
 
 # Environment variables
 .env*
+.env
+
+build/
+.DS_Store
+
