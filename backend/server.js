@@ -5,9 +5,7 @@ const dotenv = require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-    res.send({msg:"Hello, World!"});
-    })
+app.use("/recipes", require('./routes/recipe'));
 
 app.listen(PORT, (err) => {
   if (err) {
