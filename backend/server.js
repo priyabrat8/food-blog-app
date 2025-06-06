@@ -2,9 +2,10 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
+const connectDB = require('./config/connectDB');
 
 const PORT = process.env.PORT || 3000;
-
+connectDB();
 app.use("/recipes", require('./routes/recipe'));
 
 app.listen(PORT, (err) => {
