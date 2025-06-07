@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 connectDB();
+app.use(express.static('static'));
 
 app.use("/", require('./routes/user'));
 app.use("/recipes", require('./routes/recipe'));
