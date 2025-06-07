@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 connectDB();
+
+app.use("/", require('./routes/user'));
 app.use("/recipes", require('./routes/recipe'));
 
 app.listen(PORT, (err) => {
