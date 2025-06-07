@@ -11,7 +11,7 @@ export default function RecipeItems() {
     <>
     <div className="card-container">
     {
-      allRecipes.map((item,index) => {
+      allRecipes?.map((item,index) => {
         return(
           <div key={index} className="card">
             <img src={foodImg} alt={item.title} weight={120} height={100} />
