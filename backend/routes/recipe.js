@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', getRecipes); // Get all recipes
 router.get('/:id', getRecipe); // Get a specific recipe by ID
 router.post('/', upload.single('file'),verifyToken,addRecipe); // Add a new recipe
-router.put('/:id',verifyToken, updateRecipe); // Update a specific recipe by ID
+router.put('/:id',upload.single('file'),verifyToken, updateRecipe); // Update a specific recipe by ID
 router.delete('/:id',verifyToken, deleteRecipe); // Delete a specific recipe by ID
 
 module.exports = router;

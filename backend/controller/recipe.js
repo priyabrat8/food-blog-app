@@ -56,8 +56,11 @@ const updateRecipe = async (req, res) => {
             title,
             ingredients,
             instructions,
-            time
+            time,
+            coverImage: req.file ? req.file.filename : recipe.coverImage // Keep the old image if no new one is uploaded
         }, {new: true});
+
+
         res.json({title,
             ingredients,
             instructions,
@@ -72,11 +75,8 @@ const updateRecipe = async (req, res) => {
 const deleteRecipe = async (req, res) => {
     const {id} = req.params;
     try{
-    const recipe = await Recipes.findById(id);
-    if(recipe) {
-        await Recipes.findByIdAndDelete(id);
-        res.json({msg:`Recipe with ID: ${id} deleted successfully`});
-    }
+    await Recipes.findByIdAndDelete(id);
+    res.json({msg:"Recipe deleted successfully"});
 } catch (error) {
         return res.status(404).json({msg:"Recipe not found"});
     }

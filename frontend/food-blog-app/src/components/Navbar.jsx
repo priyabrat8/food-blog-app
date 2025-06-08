@@ -28,8 +28,8 @@ export default function Navbar() {
         <h2>Food Blog</h2>
         <ul>
             <li><NavLink to="/">Home</NavLink> </li>
-            <li onClick={()=> {!isLoggedIn && setIsOpen(true)}}><NavLink to={isLoggedIn? "/myRecipes" : "/"}>My Recipe</NavLink></li>
-            <li onClick={()=> {!isLoggedIn && setIsOpen(true)}}><NavLink to={isLoggedIn?"/favRecipes" : "/"}>Favourites</NavLink></li>
+            <li onClick={()=> {!isLoggedIn && setIsOpen(true)}}><NavLink to={isLoggedIn? "/myrecipe" : "/"}>My Recipe</NavLink></li>
+            <li onClick={()=> {!isLoggedIn && setIsOpen(true)}}><NavLink to={isLoggedIn?"/favorites" : "/"}>Favourites</NavLink></li>
             <li onClick={checkLogin}><p className='login'>{isLoggedIn ? "Logout" : "Login"}</p></li>
         </ul>
     </header>
