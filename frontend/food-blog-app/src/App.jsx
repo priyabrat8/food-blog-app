@@ -14,11 +14,20 @@ const getAllRecipes = async () => {
   return allRecipes;
 }
 
+const getMyRecipes = async () => {
+  let user = JSON.parse(localStorage.getItem("user"));
+  let allRecipes =await getAllRecipes();
+  if (!user) {
+    return [];
+  }
+  return allRecipes.filter(item => item.createdBy == user.id);
+}
+
 
 const router = createBrowserRouter([
   {path: '/', element: <MainNavigation />, children: [
     {path: '/', element: <Home />, loader: getAllRecipes},
-    {path: '/myRecipes', element: <Home />},
+    {path: '/myRecipes', element: <Home />, loader: getMyRecipes},
     {path: '/favRecipes', element: <Home />},
     {path: '/addRecipe', element: <AddFoodRecipe />},
   ]},

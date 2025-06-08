@@ -12,12 +12,13 @@ export default function AddFoodRecipe() {
         e.preventDefault();
         await axios.post("http://localhost:5000/recipes", recipe, {
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'multipart/form-data',
+                "authorization": "Bearer " +localStorage.getItem("token"),
             }
         }).then(() => {
             navigate("/");
         });
-        // Add your form submission logic here
+       
     };
     const onHandleChange = (e) => {
         console.log(e.target.name, e.target.value);
