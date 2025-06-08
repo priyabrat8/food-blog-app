@@ -28,6 +28,3 @@ pids
 
 build/
 .DS_Store
-
-# images
-/images/
