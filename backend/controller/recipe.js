@@ -26,9 +26,14 @@ const getRecipe = async (req, res) => {
 
 const addRecipe = async (req, res) => {
     const {title,ingredients,instructions,time} = req.body;
+    console.log(req.user);
     
     if(!title || !ingredients || !instructions || !time) {
         return res.status(400).json({msg:"Please provide all required fields"});
+    }
+
+    if(!req.user){
+        return res.status(400).json({msg:"User not authenticated"});
     }
 
     const newRecipe = await Recipes.create({
@@ -36,7 +41,8 @@ const addRecipe = async (req, res) => {
         ingredients,
         instructions,
         time,
-        coverImage: req.file ? req.file.filename : 'default.png'
+        coverImage: req.file ? req.file.filename : 'default.png',
+        createdBy: req.user.id
     });
     return res.json(newRecipe);
 }
