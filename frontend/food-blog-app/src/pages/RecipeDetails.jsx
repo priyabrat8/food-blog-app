@@ -25,7 +25,7 @@ export default function RecipeDetails() {
 
   return (
     
-    <div className="recipe-details">
+    <div className="details">
       <div className="image-container">
         <img src={ `http://localhost:5000/images/${recipe.image}` } alt={recipe.title} />
       </div>
