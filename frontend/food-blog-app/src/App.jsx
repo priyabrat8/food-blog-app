@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import MainNavigation from './components/MainNavigation';
 import AddFoodRecipe from './pages/AddFoodRecipe';
 import EditRecipe from './pages/EditRecipe';
+import NotFound from './pages/NotFound';
 import axios from 'axios';
 
 const getAllRecipes = async () => {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
     {path: '/favorites', element: <Home />, loader: getFavorites},
     {path: '/addrecipe', element: <AddFoodRecipe />},
     {path: '/editrecipe/:id', element: <EditRecipe />},
+    {path: '*', element: <NotFound />}
   ]},
   
 

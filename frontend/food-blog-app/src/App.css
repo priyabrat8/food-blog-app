@@ -289,3 +289,16 @@ section{
   color:black !important;
   background-color: #d4f6e8;
 }
+
+.error-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error-container svg {
+  font-size: 15rem;
+}

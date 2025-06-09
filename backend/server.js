@@ -13,6 +13,10 @@ app.use(express.static('static'));
 
 app.use("/", require('./routes/user'));
 app.use("/recipes", require('./routes/recipe'));
+// Handle 404 errors
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
 
 app.listen(PORT, (err) => {
   if (err) {
