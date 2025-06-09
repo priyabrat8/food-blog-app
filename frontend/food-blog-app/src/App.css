@@ -302,3 +302,23 @@ section{
 .error-container svg {
   font-size: 15rem;
 }
+
+.recipe-details {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  }
+
+  .recipe-details img {
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .recipe-details .details {
+    flex: 1;
+  }
+  .recipe-details .details h2 {
+    margin-bottom: 1rem;
+  }

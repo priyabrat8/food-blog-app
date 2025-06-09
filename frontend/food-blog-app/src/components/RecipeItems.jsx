@@ -53,7 +53,9 @@ export default function RecipeItems() {
           <div key={index} className="card">
             <img src={ `http://localhost:5000/images/${item.coverImage}` } alt={item.title} weight={120} height={100} />
             <div className="card-body">
+              <Link to={`/recipedetails/${item._id}`}>
               <div className="title">{item.title}</div>
+              </Link>
               <div className="icons">
                 <div className="timer"><MdAccessTimeFilled /> {item.time}</div>
                 {!path ?<FaHeart onClick={() => handleFavorite(item)} style={{color: (favItem).some(res => res._id === item._id) ? "red" : "black"}} /> :

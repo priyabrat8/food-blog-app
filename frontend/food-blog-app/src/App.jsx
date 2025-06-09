@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import MainNavigation from './components/MainNavigation';
 import AddFoodRecipe from './pages/AddFoodRecipe';
 import EditRecipe from './pages/EditRecipe';
+import RecipeDetails from './pages/RecipeDetails';
 import NotFound from './pages/NotFound';
 import axios from 'axios';
 
@@ -37,7 +38,9 @@ const router = createBrowserRouter([
     {path: '/myrecipe', element: <Home />, loader: getMyRecipes},
     {path: '/favorites', element: <Home />, loader: getFavorites},
     {path: '/addrecipe', element: <AddFoodRecipe />},
+    {path: '/recipedetails/:id', element: <RecipeDetails />},
     {path: '/editrecipe/:id', element: <EditRecipe />},
+
     {path: '*', element: <NotFound />}
   ]},
   
