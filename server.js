@@ -1,21 +1,27 @@
 // create a express server
 const express = require('express');
 const app = express();
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv');
 const connectDB = require('./config/connectionDB');
-const cors = require('cors');
+const path = require('path');
+
+dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
-app.use(cors());
+
+// Serve Vite build
+app.use(express.static(path.join(__dirname, 'food-blog-app', 'dist')));
+
 connectDB();
 app.use(express.static('static'));
 
 app.use("/", require('./routes/user'));
 app.use("/recipes", require('./routes/recipe'));
-// Handle 404 errors
-app.use((req, res) => {
-  res.status(404).json({ message: "Route not found" });
+
+// Fallback to index.html (for React Router)
+app.get((req, res) => {
+  res.sendFile(path.join(__dirname, 'food-blog-app', 'dist', 'index.html'));
 });
 
 app.listen(PORT, (err) => {
